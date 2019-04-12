@@ -10,8 +10,11 @@ import Foundation
 
 class CalculatorBrain {
     
-    private var accumulator = 0.0
-    private var accumulatorValueChanged = false
+    private var accumulator = 0.0 {
+        didSet {
+            //print("Accumulator = \(accumulator)")
+        }
+    }
     var memmorizedValue = 0.0
     
     var result: Double {
@@ -49,7 +52,6 @@ class CalculatorBrain {
     
     func setOperand(operand: Double) {
         accumulator = operand
-        accumulatorValueChanged = true
     }
     
     func performOperation(operationSymbol: String) {
@@ -68,7 +70,9 @@ class CalculatorBrain {
         case .AddValueToMemmory:
             memmorizedValue = accumulator
         case .GetMemmorizedValue:
-            memmorizedValue != 0.0 ? accumulator = memmorizedValue : nil
+            if !memmorizedValue.isNaN {
+                memmorizedValue != 0.0 ? accumulator = memmorizedValue : nil
+            }
         case .RemoveValueFromMemmory:
             memmorizedValue == accumulator ? memmorizedValue = 0.0 : nil
         }
@@ -83,8 +87,11 @@ class CalculatorBrain {
     
     private func executePendingBinaryOperation() {
         if pendingBinaryOperation != nil {
-            accumulator = pendingBinaryOperation!.binaryFunction(pendingBinaryOperation!.firstOperand, accumulator)
-            pendingBinaryOperation = nil
+            guard let firstOperand = pendingBinaryOperation?.firstOperand else { return }
+            if !firstOperand.isNaN {
+                accumulator = pendingBinaryOperation!.binaryFunction(pendingBinaryOperation!.firstOperand, accumulator)
+                pendingBinaryOperation = nil
+            }
         }
     }
 }

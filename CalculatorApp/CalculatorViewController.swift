@@ -12,6 +12,8 @@ class CalculatorViewController: UIViewController {
     
     @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet weak var meButton: UIButton!
+   
+    @IBOutlet weak var displayAspectRatio: NSLayoutConstraint!
     
     private var userIsTypingDigits = false
     private var errorOccurred = false
@@ -30,7 +32,10 @@ class CalculatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        deviceOrientationNotificationsObserver()
     }
     
     @IBAction func acButtonPressed(_ sender: UIButton) {
@@ -116,6 +121,27 @@ class CalculatorViewController: UIViewController {
             outputDisplayValue = "Error"
         }
         return outputDisplayValue
+    }
+}
+
+//MARK: Orientation Changes
+
+extension CalculatorViewController {
+    func sizeClass() -> (UIUserInterfaceSizeClass, UIUserInterfaceSizeClass) {
+        return (self.traitCollection.horizontalSizeClass, self.traitCollection.verticalSizeClass)
+    }
+    
+    func deviceOrientationNotificationsObserver() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(deviceOrientationChanged), name: ORIENTATION_CHANGED, object: nil)
+    }
+    
+    @objc func deviceOrientationChanged() {
+        if UIDevice.current.orientation.isLandscape {
+            displayAspectRatio.constant = 400
+        } else {
+            displayAspectRatio.constant = 0
+        }
     }
 }
 

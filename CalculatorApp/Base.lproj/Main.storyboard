@@ -352,8 +352,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="displayAspectRatio" destination="rSu-yU-vxy" id="m2F-21-mjA"/>
                         <outlet property="displayLabel" destination="6UH-MP-jF1" id="hes-mn-bP4"/>
                         <outlet property="meButton" destination="NTA-2H-Gre" id="9Of-Eq-RHC"/>
+                        <outlet property="stackTopConstraint" destination="YW4-be-wHQ" id="BlK-9j-kfw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

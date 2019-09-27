@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		251C9487233E2CD100DA048D /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251C9486233E2CD100DA048D /* NotificationNames.swift */; };
 		25D38F1122421483002B2089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D38F1022421483002B2089 /* AppDelegate.swift */; };
 		25D38F1322421483002B2089 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D38F1222421483002B2089 /* CalculatorViewController.swift */; };
 		25D38F1622421483002B2089 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25D38F1422421483002B2089 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		251C9486233E2CD100DA048D /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		25D38F0D22421483002B2089 /* CalculatorApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalculatorApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D38F1022421483002B2089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25D38F1222421483002B2089 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				25D38F1022421483002B2089 /* AppDelegate.swift */,
+				251C9486233E2CD100DA048D /* NotificationNames.swift */,
 				25D38F1222421483002B2089 /* CalculatorViewController.swift */,
 				25F301D322436FD6003198EB /* CalculatorBrain.swift */,
 				25D38F1422421483002B2089 /* Main.storyboard */,
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25F301D422436FD6003198EB /* CalculatorBrain.swift in Sources */,
+				251C9487233E2CD100DA048D /* NotificationNames.swift in Sources */,
 				25D38F1322421483002B2089 /* CalculatorViewController.swift in Sources */,
 				25D38F1122421483002B2089 /* AppDelegate.swift in Sources */,
 			);
